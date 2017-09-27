@@ -90,9 +90,53 @@ public class Controller extends View implements ActionListener  {
 		}
 		
 		if(e.getSource()==done) {
+			insertion.setVisible(false);
 			insertion.removeAll();
-			//TODO payment page. If possible last page
+			insertion.add(dd);
+			insertion.add(cash);
+			insertion.add(half);
+			insertion.add(full);
+			insertion.setVisible(true);
+			//TODO If possible last page
 	    }
+		
+		//TODO
+		if(e.getSource()==cash) {
+			// send to table and show message
+		}
+		
+		if(e.getSource()==dd) {
+			// set visible textField to get bank info and dd number
+		}
+		
+		if(e.getSource()==half) {
+			//record to table
+		}
+		
+		if(e.getSource()==full) {
+			//record to table
+		}
+		
+
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 	}
 
 }

@@ -9,11 +9,12 @@ public class View extends JFrame {
 	
 	JPanel main,insertion,newSign,Login;
 	JButton login,signup,insert,upload1,upload2,done,pay,exit,okay;
-	//okay used with insertion operation
+	//okay used with verification process operation
 	JTextField roll,name,div,branch,year,phno,category,username,pass,verifypass;
 	JLabel lRoll,lName,lDiv,lBranch,lYear,lPhno,lCat,lusername,lpass,lverifypass;
 	
 	JRadioButton cash,dd,full,half;
+	ButtonGroup mode,type;
 	
 	View(){
 
@@ -171,21 +172,31 @@ public class View extends JFrame {
      pay.setBackground(new Color(150,150,200));
      
      cash=new JRadioButton("Cash");
-    
+     cash.setBounds(100, 200, 100, 50);
+     
+     dd=new JRadioButton("Demand Draft");
+     dd.setBounds(200,200, 200, 50);
+     
+     mode=new ButtonGroup();
+     mode.add(cash);
+     mode.add(dd);
+     
+     full=new JRadioButton("Full");
+     full.setBounds(100, 300, 100, 50);
+     
+     half=new JRadioButton("Half");
+     half.setBounds(200,300, 200, 50);
+     
+     type=new ButtonGroup();
+     type.add(full);
+     type.add(half);
+     
+     //=========================================================================
+     
     exit = new JButton("Exit");
     exit.setBounds(160,420,100,100);
     //change color of the button
     exit.setBackground(new Color(150,150,200));
-
- /*   main.add(insert); //add to panel
-    main.add(display); //add to panel
-    main.add(search); //add to panel
-    main.add(update); //add to panel
-    main.add(topper); //add to panel
-    main.add(pF); //add to panel
-    main.add(delete); //add to panel
-    main.add(exit);//add to panel
-   */
 
     this.setVisible(true); //set visibility of frame to true
 }

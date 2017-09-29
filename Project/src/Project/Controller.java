@@ -17,6 +17,10 @@ public class Controller extends View implements ActionListener  {
 		upload1.addActionListener(this);
 		upload2.addActionListener(this);
 		done.addActionListener(this);
+		cash.addActionListener(this);
+		dd.addActionListener(this);
+		full.addActionListener(this);
+		half.addActionListener(this);
 		s=new Student();
 	}
 	@Override
@@ -96,47 +100,44 @@ public class Controller extends View implements ActionListener  {
 			insertion.add(cash);
 			insertion.add(half);
 			insertion.add(full);
+			insertion.add(getChallan);
 			insertion.setVisible(true);
 			//TODO If possible last page
 	    }
 		
 		//TODO
-		if(e.getSource()==cash) {
+		if(cash.isSelected()) {
 			// send to table and show message
 		}
 		
-		if(e.getSource()==dd) {
+		if(dd.isSelected()==true) {
 			// set visible textField to get bank info and dd number
+			insertion.add(lPhno);
+			insertion.add(phno);
+			insertion.add(lCat);
+			insertion.add(category);
+			insertion.setVisible(true);
+			//TODO
+						
+			
 		}
 		
-		if(e.getSource()==half) {
+		if(half.isSelected()) {
 			//record to table
-		}
-		
-		if(e.getSource()==full) {
-			//record to table
-		}
-		
+			//TODO
 
+		}
 		
+		if(full.isSelected()) {
+			//record to table
+			//TODO
+
+		}
 		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
+		if(e.getSource()==getChallan) {
+			//TODO
+			
+		}
 	}
 
 }

@@ -8,7 +8,7 @@ import java.awt.*;
 public class View extends JFrame {
 	
 	JPanel main,insertion,newSign,Login;
-	JButton login,signup,insert,upload1,upload2,done,pay,exit,okay;
+	JButton login,signup,insert,upload1,upload2,done,pay,exit,okay,getChallan;
 	//okay used with verification process operation
 	JTextField roll,name,div,branch,year,phno,category,username,pass,verifypass;
 	JLabel lRoll,lName,lDiv,lBranch,lYear,lPhno,lCat,lusername,lpass,lverifypass;
@@ -191,6 +191,15 @@ public class View extends JFrame {
      type.add(full);
      type.add(half);
      
+     getChallan = new JButton("Generate the Challan");
+     getChallan.setBounds(200,400,200,50);
+     getChallan.setBackground(new Color(150,150,200));
+     
+     lPhno=createLabel(lPhno,"Enter DD Number",230);
+     phno=createTextfield(phno,230);
+     
+     lCat=createLabel(lCat,"Bank Address",270);
+     category=createTextfield(category,270);
      //=========================================================================
      
     exit = new JButton("Exit");

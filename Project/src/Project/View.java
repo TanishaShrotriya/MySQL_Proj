@@ -10,8 +10,8 @@ public class View extends JFrame {
 	JPanel main,insertion,newSign,Login;
 	JButton login,signup,insert,upload1,upload2,done,pay,exit,okay,getChallan;
 	//okay used with verification process operation
-	JTextField roll,name,div,branch,year,phno,category,username,pass,verifypass;
-	JLabel lRoll,lName,lDiv,lBranch,lYear,lPhno,lCat,lusername,lpass,lverifypass;
+	JTextField roll,name,div,branch,year,phno,category,username,pass,verifypass,ddnum,bank;
+	JLabel lRoll,lName,lDiv,lBranch,lYear,lPhno,lCat,lusername,lpass,lverifypass,lddnum,lbank;
 	
 	JRadioButton cash,dd,full,half;
 	ButtonGroup mode,type;
@@ -53,7 +53,10 @@ public class View extends JFrame {
 	Login.setBackground(new Color(30,10,40));
     
     lusername=createLabel(lusername,"Username",30);
-    username=createTextfield(username,30);
+   // username=createTextfield(username,30);
+    username = new JTextField();
+    username.setBounds(440,30,300,30);
+    username.setVisible(true);
     
     lpass=createLabel(lpass,"Password",90);
     pass=createTextfield(pass,90);
@@ -150,7 +153,7 @@ public class View extends JFrame {
     upload2.setBounds(500,50,200,50);
     upload2.setBackground(new Color(150,150,200));
 
-    done=new JButton("Done");
+    done=new JButton("Go to Payments");
 	done.setBounds(500,400,200,50);
     done.setBackground(new Color(150,150,200));
     
@@ -166,26 +169,22 @@ public class View extends JFrame {
     //======================================================================
     
     //pay interface 
-    
-     pay = new JButton("Search");
-     pay.setBounds(30,290,100,100);
-     pay.setBackground(new Color(150,150,200));
      
      cash=new JRadioButton("Cash");
-     cash.setBounds(100, 200, 100, 50);
+     cash.setBounds(50, 200, 100, 50);
      
      dd=new JRadioButton("Demand Draft");
-     dd.setBounds(200,200, 200, 50);
+     dd.setBounds(150,200, 150, 50);
      
      mode=new ButtonGroup();
      mode.add(cash);
      mode.add(dd);
      
      full=new JRadioButton("Full");
-     full.setBounds(100, 300, 100, 50);
+     full.setBounds(50, 300, 100, 50);
      
      half=new JRadioButton("Half");
-     half.setBounds(200,300, 200, 50);
+     half.setBounds(150,300, 150, 50);
      
      type=new ButtonGroup();
      type.add(full);
@@ -195,11 +194,11 @@ public class View extends JFrame {
      getChallan.setBounds(200,400,200,50);
      getChallan.setBackground(new Color(150,150,200));
      
-     lPhno=createLabel(lPhno,"Enter DD Number",230);
-     phno=createTextfield(phno,230);
+     lddnum=createLabel(lddnum,"DD Number",230);
+     ddnum=createTextfield(ddnum,230);
      
-     lCat=createLabel(lCat,"Bank Address",270);
-     category=createTextfield(category,270);
+     lbank=createLabel(lbank,"Bank Address",270);
+     bank=createTextfield(bank,270);
      //=========================================================================
      
     exit = new JButton("Exit");
@@ -208,6 +207,8 @@ public class View extends JFrame {
     exit.setBackground(new Color(150,150,200));
 
     this.setVisible(true); //set visibility of frame to true
+    
+    
 }
 	
 	public JLabel createLabel(JLabel l ,String name, int d) {

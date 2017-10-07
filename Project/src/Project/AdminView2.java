@@ -9,7 +9,9 @@ public class AdminView2 extends JFrame{
 		JButton login,callBack,Docs,DdDetails,cashDetails,toBank,
 		        verify,nextImg,prevImg,back,back2,back3,back4,
 		        install2,fromBank,unverified,search,checkDocs,checkDD,checkCash,exit;
+		
 		//okay used with verification process operation
+		
 		JTextField roll,name,div,branch,year,phno,category,username,pass;
 		JLabel lMark,lAadhar,lReceit,lBranch,lYear,lPhno,lCat,lusername,lpass,DD,Cash,cBack;
 		

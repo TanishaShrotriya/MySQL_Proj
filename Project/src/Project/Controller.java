@@ -3,6 +3,8 @@ package Project;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.JOptionPane;
+
 @SuppressWarnings("serial")
 public class Controller extends View implements ActionListener  {
 	
@@ -30,9 +32,6 @@ public class Controller extends View implements ActionListener  {
 		if(e.getSource()==signup) {
 			main.setVisible(false);
 			Login.setVisible(true);
-
-			//TODO YET
-			s.newEntry(this);
 		}
 		if(e.getSource()==login) {
 			main.setVisible(false);
@@ -41,29 +40,45 @@ public class Controller extends View implements ActionListener  {
 			lverifypass.setVisible(false);
 		
 			// TODO YET 
-			s.vRecords(this);
+			//s.vRecords(this);
 		}
 		
 		if(e.getSource()== okay) {
 			//verified=1 then go to login page
 			
-			if(s.verified==1) {
-				main.setVisible(false);
-				Login.setVisible(true);
-				verifypass.setVisible(false);
-				lverifypass.setVisible(false);
-				s.vRecords(this);
+			//TODO YET
+			if(s.verified==0) { 
+				try {
+					s.newEntry(this);
+					pass.setText(" ");
+					verifypass.setText(" ");
+				} catch (Exception e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
 			}
-			
+		
 			//if verified == 2 move to insertion 
 			if(s.verified==2) {
 				Login.setVisible(false);
 				insertion.setVisible(true);
 			}
-			//error message
-			else {
-				
+			
+			if(s.verified==1) {
+				main.setVisible(false);
+				Login.setVisible(true);
+				username.setText(" ");
+				verifypass.setVisible(false);
+				lverifypass.setVisible(false);
+			    s.vRecords(this);
+			    
 			}
+			
+			
+			//error message
+			//else {
+				
+			//}
 			
 		}
 		if(e.getSource()==insert) {
@@ -83,17 +98,20 @@ public class Controller extends View implements ActionListener  {
 		}
 		
 		if(e.getSource()==upload1) {
-		//file chooser code
-			s.upload(this);
+		   //file chooser code and send to docs table of sql
+			s.upload(this,"marksheet",this.lRoll);
+           //pass the controller object and the column name in sql table.
 			
 		}
 		
 		if(e.getSource()==upload2) {
-			//file chooser code
-	        s.upload(this);
+			//file chooser code and send to docs table of sql
+	        s.upload(this,"aadhar",this.lName);
+	        //pass the controller object and the column name in sql table.
 		}
 		
 		if(e.getSource()==done) {
+			JOptionPane.showMessageDialog(this, "Upload successful!");
 			insertion.setVisible(false);
 			insertion.removeAll();
 			insertion.add(dd);
@@ -102,33 +120,39 @@ public class Controller extends View implements ActionListener  {
 			insertion.add(full);
 			insertion.add(getChallan);
 			insertion.setVisible(true);
-			//TODO If possible last page
+			
 	    }
 		
 		//TODO
-		if(cash.isSelected()) {
+		if(cash.isSelected()==true) {
 			// send to table and show message
+			insertion.setVisible(false);
+			insertion.remove(lddnum);
+			insertion.remove(ddnum);
+			insertion.remove(lbank);
+			insertion.remove(bank);
+			insertion.setVisible(true);
 		}
 		
 		if(dd.isSelected()==true) {
 			// set visible textField to get bank info and dd number
-			insertion.add(lPhno);
-			insertion.add(phno);
-			insertion.add(lCat);
-			insertion.add(category);
+			insertion.setVisible(false);
+			insertion.add(lddnum);
+			insertion.add(ddnum);
+			insertion.add(lbank);
+			insertion.add(bank);
 			insertion.setVisible(true);
 			//TODO
-						
 			
 		}
 		
-		if(half.isSelected()) {
+		if(half.isSelected()==true) {
 			//record to table
 			//TODO
 
 		}
 		
-		if(full.isSelected()) {
+		if(full.isSelected()==true) {
 			//record to table
 			//TODO
 

@@ -2,7 +2,15 @@ package Project;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.Statement;
 
+import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
@@ -11,6 +19,7 @@ import javax.swing.JTable;
 @SuppressWarnings("serial")
 public class AdminController extends AdminView2 implements ActionListener {
 
+	Admin a=null;
 	AdminController() {
 		super();
 		login.addActionListener(this);
@@ -34,6 +43,7 @@ public class AdminController extends AdminView2 implements ActionListener {
 		fromBank.addActionListener(this);
 		install2.addActionListener(this);;
 		unverified.addActionListener(this);
+		a=new Admin();
 	
 		
 	}
@@ -48,8 +58,10 @@ public class AdminController extends AdminView2 implements ActionListener {
 		}
 		
 		if(e.getSource()==verify) {
-			Login.setVisible(false);
-			insertion.setVisible(true);
+			//Login.setVisible(false);
+			//insertion.setVisible(true);
+		    a.Login(this);
+		    
 		}
 		
 		if(e.getSource()==Docs) {
@@ -122,6 +134,14 @@ public class AdminController extends AdminView2 implements ActionListener {
 	    
 	    if(e.getSource()==back) {
 		
+	    	this.lAadhar.setIcon(null);
+	    	this.lAadhar.setText("See Aadhar here");
+	    	
+	    	this.lMark.setIcon(null);
+	    	this.lMark.setText("See marksheet here");
+	    	
+	    	this.lReceit.setIcon(null);
+	    	this.lReceit.setText("See challan here");
 	    	main.setVisible(false);
 	    	insertion.setVisible(true);
 		}
@@ -129,11 +149,13 @@ public class AdminController extends AdminView2 implements ActionListener {
 		if(e.getSource()==nextImg) {
 		//TODO
 			// code to move forward
+			a.nextImg(this);
 		}
 		
 	    if(e.getSource()==prevImg) {
 	    	//TODO	
 	    	// code to go back a value
+	    	a.prevImg(this);
 		}
 		
 		if(e.getSource()==checkDocs) {
